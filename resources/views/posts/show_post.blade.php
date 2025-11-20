@@ -19,22 +19,17 @@
 @endsection
 
 @section('content')
-    <div class="container px-4 px-lg-5">
+    <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-1 justify-content-center">
-            @foreach ($posts as $post)
-                <div class="card col-lg-8 mb-3">
-                    <div class="card-header">
-                        {{ $post->user->name }} - {{ $post->created_at->format('Y-m-d') }}
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $post->title }}</h5>
-                        <p class="card-text">{{\Str::limit($post->description,150) }}</p>
-                        <a href="{{ route('posts.show',$post->id) }}" class="btn btn-primary">Go somewhere</a>
-                    </div>
+            <div class="card col-lg-8 mb-3">
+                <div class="card-header">
+                    {{ $post->user->name }} - {{ $post->created_at->format('Y-m-d') }}
                 </div>
-            @endforeach
-            {{ $posts->links() }}
+                <div class="card-body">
+                    <h5 class="card-title">{{ $post->title }}</h5>
+                    <p class="card-text">{{ $post->description }}</p>
+                </div>
+            </div>
         </div>
     </div>
-
 @endsection
