@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'type'
     ];
 
 
@@ -45,5 +47,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // public function Post(){ //ex :one to one
+    //     return $this->hasOne(Post::class,'user_id','id');
+    // }
+    public function posts(){
+        return $this->hasMany(Post::class,'user_id', 'id');
     }
 }
